@@ -158,6 +158,12 @@ worker-0      us-west1-c  t2a-standard-2               10.240.0.20  XX.XX.XXX.XX
 worker-1      us-west1-c  t2a-standard-2               10.240.0.21  XX.XX.XX.XXX   RUNNING
 ```
 
+## Add metadata
+
+```
+gcloud compute project-info add-metadata  --metadata google-compute-default-region=us-central1
+```
+
 ## Configuring SSH Access
 
 SSH will be used to configure the controller and worker instances. When connecting to compute instances for the first time SSH keys will be generated for you and stored in the project or instance metadata as described in the [connecting to instances](https://cloud.google.com/compute/docs/instances/connecting-to-instance) documentation.
