@@ -123,7 +123,7 @@ Each worker instance requires a pod subnet allocation from the Kubernetes cluste
 Create three compute instances which will host the Kubernetes worker nodes:
 
 ```
-for i in 0 1 2; do
+for i in 0 1; do
   gcloud compute instances create worker-${i} \
     --async \
     --boot-disk-size 200GB \
@@ -151,12 +151,11 @@ gcloud compute instances list --filter="tags.items=kubernetes-the-hard-way"
 
 ```
 NAME          ZONE        MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP    STATUS
-controller-0  us-west1-c  e2-standard-2               10.240.0.10  XX.XX.XX.XXX   RUNNING
-controller-1  us-west1-c  e2-standard-2               10.240.0.11  XX.XXX.XXX.XX  RUNNING
-controller-2  us-west1-c  e2-standard-2               10.240.0.12  XX.XXX.XX.XXX  RUNNING
-worker-0      us-west1-c  e2-standard-2               10.240.0.20  XX.XX.XXX.XXX  RUNNING
-worker-1      us-west1-c  e2-standard-2               10.240.0.21  XX.XX.XX.XXX   RUNNING
-worker-2      us-west1-c  e2-standard-2               10.240.0.22  XX.XXX.XX.XX   RUNNING
+controller-0  us-west1-c  t2a-standard-1               10.240.0.10  XX.XX.XX.XXX   RUNNING
+controller-1  us-west1-c  t2a-standard-1               10.240.0.11  XX.XXX.XXX.XX  RUNNING
+controller-2  us-west1-c  t2a-standard-1               10.240.0.12  XX.XXX.XX.XXX  RUNNING
+worker-0      us-west1-c  t2a-standard-2               10.240.0.20  XX.XX.XXX.XXX  RUNNING
+worker-1      us-west1-c  t2a-standard-2               10.240.0.21  XX.XX.XX.XXX   RUNNING
 ```
 
 ## Configuring SSH Access
