@@ -92,7 +92,7 @@ kubernetes-the-hard-way  XX.XXX.XXX.XXX  EXTERNAL                    us-west1   
 
 ## Compute Instances
 
-The compute instances in this lab will be provisioned using [Ubuntu Server](https://www.ubuntu.com/server) 20.04, which has good support for the [containerd container runtime](https://github.com/containerd/containerd). Each compute instance will be provisioned with a fixed private IP address to simplify the Kubernetes bootstrapping process.
+The compute instances in this lab will be provisioned using [Ubuntu Server](https://www.ubuntu.com/server) 22.04, which has good support for the [containerd container runtime](https://github.com/containerd/containerd). Each compute instance will be provisioned with a fixed private IP address to simplify the Kubernetes bootstrapping process.
 
 ### Kubernetes Controllers
 
@@ -104,9 +104,9 @@ for i in 0 1 2; do
     --async \
     --boot-disk-size 200GB \
     --can-ip-forward \
-    --image-family ubuntu-2004-lts \
+    --image-family ubuntu-2204-lts-arm64 \
     --image-project ubuntu-os-cloud \
-    --machine-type e2-standard-2 \
+    --machine-type t2a-standard-1 \
     --private-network-ip 10.240.0.1${i} \
     --scopes compute-rw,storage-ro,service-management,service-control,logging-write,monitoring \
     --subnet kubernetes \
@@ -128,9 +128,9 @@ for i in 0 1 2; do
     --async \
     --boot-disk-size 200GB \
     --can-ip-forward \
-    --image-family ubuntu-2004-lts \
+    --image-family ubuntu-2204-lts-arm64 \
     --image-project ubuntu-os-cloud \
-    --machine-type e2-standard-2 \
+    --machine-type t2a-standard-2 \
     --metadata pod-cidr=10.200.${i}.0/24 \
     --private-network-ip 10.240.0.2${i} \
     --scopes compute-rw,storage-ro,service-management,service-control,logging-write,monitoring \
