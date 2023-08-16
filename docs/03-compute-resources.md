@@ -161,7 +161,7 @@ worker-1      us-west1-c  t2a-standard-2               10.240.0.21  XX.XX.XX.XXX
 ## Add metadata
 
 ```
-gcloud compute project-info add-metadata  --metadata google-compute-default-region=us-central1
+gcloud compute project-info add-metadata  --metadata google-compute-default-region=
 ```
 
 ## Configuring SSH Access
